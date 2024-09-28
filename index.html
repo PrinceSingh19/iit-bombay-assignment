@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Chemical Supplies Table</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="headerAlign">
+			<h2>Chemical Supplies</h2>
+			<div class="controls">
+				<button class="add-button" onclick="openAddModal()">
+					<img src="./assets/images/add-button.png" />
+				</button>
+				<button class="sort-button" onclick="toggleSort()">
+					<img src="./assets/images/sort-up.png" />
+				</button>
+
+				<button class="move-up-button rotate" onclick="moveRows(-1)">
+					<img src="./assets/images/down-arrow.png" />
+				</button>
+				<button class="move-down-button" onclick="moveRows(1)">
+					<img src="./assets/images/down-arrow.png" />
+				</button>
+				<button class="delete-button" onclick="deleteSelectedRows()">
+					<img src="./assets/images/trash-bin.png" />
+				</button>
+				<button class="refresh-button" onclick="refreshData()">
+					<img src="./assets/images/refresh.png" />
+				</button>
+				<button class="save-button" onclick="saveData()">
+					<img src="./assets/images/save.png" />
+				</button>
+			</div>
+		</div>
+
+		<table id="chemicalTable">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>ID</th>
+					<th>Chemical Name</th>
+					<th>Vendor</th>
+					<th>Density</th>
+					<th>Viscosity</th>
+					<th>Packaging</th>
+					<th>Pack Size</th>
+					<th>Unit</th>
+					<th>Quantity</th>
+				</tr>
+			</thead>
+			<tbody id="tableBody">
+				<!-- Data will be dynamically added here -->
+			</tbody>
+		</table>
+
+		<!-- Modal for adding new row -->
+		<div id="addModal" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeAddModal()">&times;</span>
+				<h2>Add New Chemical</h2>
+				<div>
+					<label for="chemicalName">Chemical Name:</label>
+					<input type="text" id="chemicalName" required />
+				</div>
+				<div><label for="vendor">Vendor:</label> <input type="text" id="vendor" required /></div>
+				<div>
+					<label for="density">Density:</label>
+					<input type="number" id="density" required />
+				</div>
+				<div>
+					<label for="viscosity">Viscosity:</label>
+					<input type="number" id="viscosity" required />
+				</div>
+				<div>
+					<label for="packaging">Packaging:</label>
+					<input type="text" id="packaging" required />
+				</div>
+				<div>
+					<label for="packSize">Pack Size:</label> <input type="number" id="packSize" required />
+				</div>
+				<div><label for="unit">Unit:</label> <input type="text" id="unit" required /></div>
+				<div>
+					<label for="quantity">Quantity:</label> <input type="number" id="quantity" required />
+				</div>
+				<button onclick="addChemical()">Add Chemical</button>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
